@@ -28,7 +28,7 @@ class PicturesViewController: UITableViewController {
                 picturesNames.append(image)
             }
         }
-        
+        picturesNames = picturesNames.sorted() //to sort the array of pics names
         print(picturesNames)
     }
     
