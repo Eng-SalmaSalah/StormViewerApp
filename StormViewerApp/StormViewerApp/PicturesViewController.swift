@@ -14,6 +14,8 @@ class PicturesViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "Storm Viewer"
+        
         let fileManager = FileManager.default
         let path = Bundle.main.resourcePath! // here force unwrap is safe because any ios app has resourcePath
         
