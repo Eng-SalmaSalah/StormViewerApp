@@ -9,12 +9,23 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    var picturesNames = [String]()
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        let fileManager = FileManager.default
+        let path = Bundle.main.resourcePath! // here force unwrap is safe because any ios app has resourcePath
+        
+        let images = try! fileManager.contentsOfDirectory(atPath: path) // her force try i safe because i am sure that path exists
+        
+        for image in images{
+            if image.hasPrefix("nssl"){
+                picturesNames.append(image)
+            }
+        }
+        
+        print(picturesNames)
     }
-
-
 }
 
