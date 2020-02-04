@@ -15,6 +15,8 @@ class PicturesViewController: UITableViewController {
         super.viewDidLoad()
         
         title = "Storm Viewer"
+        //to show large title for the first screen in navigation controller
+        navigationController?.navigationBar.prefersLargeTitles = true
         
         let fileManager = FileManager.default
         let path = Bundle.main.resourcePath! // here force unwrap is safe because any ios app has resourcePath

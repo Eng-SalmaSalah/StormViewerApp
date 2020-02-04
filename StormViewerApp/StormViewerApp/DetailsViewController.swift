@@ -16,6 +16,8 @@ class DetailsViewController: UIViewController {
         super.viewDidLoad()
         
         title = selectedImage
+        //to show title small in the pushed screen in the navigation controller
+        navigationItem.largeTitleDisplayMode = .never
 
         if let imageToLoad = selectedImage {
             detailsImageView.image = UIImage(named: imageToLoad)
