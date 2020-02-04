@@ -46,6 +46,7 @@ class PicturesViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let detailsVC = storyboard?.instantiateViewController(identifier: "Details") as? DetailsViewController{
             detailsVC.selectedImage = picturesNames[indexPath.row]
+            detailsVC.titleToShow = "Picture \(indexPath.row + 1) of \(picturesNames.count)"
             navigationController?.pushViewController(detailsVC, animated: true)
         }
     }

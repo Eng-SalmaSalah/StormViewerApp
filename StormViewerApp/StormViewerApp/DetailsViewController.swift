@@ -12,10 +12,11 @@ class DetailsViewController: UIViewController {
 
     @IBOutlet weak var detailsImageView: UIImageView!
     var selectedImage: String?
+    var titleToShow: String?
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = selectedImage
+        title = titleToShow
         //to show title small in the pushed screen in the navigation controller
         navigationItem.largeTitleDisplayMode = .never
 
