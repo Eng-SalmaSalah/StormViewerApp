@@ -22,7 +22,7 @@ class DetailsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //to hide the upper bar thet has the back button when tap on screen
+        //to hide the upper bar that has the back button when tap on screen
         navigationController?.hidesBarsOnTap = true
     }
     
