@@ -19,7 +19,9 @@ class DetailsViewController: UIViewController {
         title = titleToShow
         //to show title small in the pushed screen in the navigation controller
         navigationItem.largeTitleDisplayMode = .never
-
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareBtnTapped))
+        //action is the sharing btn
+        
         if let imageToLoad = selectedImage {
             detailsImageView.image = UIImage(named: imageToLoad)
         }
@@ -36,6 +38,16 @@ class DetailsViewController: UIViewController {
         navigationController?.hidesBarsOnTap = false
     }
     
-
+    @objc func shareBtnTapped(){ //@objc is bec UIbarbuttonitem is an objective c method so it cannot see the swift code of shareBtntapped
+        // guard let bec image is optional 
+        guard let imageToShare = detailsImageView.image?.jpegData(compressionQuality: 0.8) else {
+            print("no image found")
+            return
+        }
+        let activityVC = UIActivityViewController(activityItems:[imageToShare], applicationActivities: [])
+        activityVC.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
+        //the line above tells the share view where to appear (what was tapped to view it) in case we use ipad it is important,without it app will crash
+        present(activityVC,animated: true)
+    }
 
 }
