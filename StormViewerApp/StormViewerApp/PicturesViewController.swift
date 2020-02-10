@@ -17,6 +17,7 @@ class PicturesViewController: UITableViewController {
         title = "Storm Viewer"
         //to show large title for the first screen in navigation controller
         navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "suggest app", style: .plain, target: self, action: #selector(suggestApp))
         
         let fileManager = FileManager.default
         let path = Bundle.main.resourcePath! // here force unwrap is safe because any ios app has resourcePath
@@ -49,6 +50,14 @@ class PicturesViewController: UITableViewController {
             detailsVC.titleToShow = "Picture \(indexPath.row + 1) of \(picturesNames.count)"
             navigationController?.pushViewController(detailsVC, animated: true)
         }
+    }
+    
+    @objc func suggestApp(){
+        let firstActivityItem = "Try it!"
+        let secondActivityItem : NSURL = NSURL(string: "https://github.com/Eng-SalmaSalah/StormViewerApp")!
+        let activityVC = UIActivityViewController(activityItems: [firstActivityItem,secondActivityItem], applicationActivities: [])
+        activityVC.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
+        present(activityVC,animated: true)
     }
 }
 
