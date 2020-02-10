@@ -44,7 +44,7 @@ class DetailsViewController: UIViewController {
             print("no image found")
             return
         }
-        let activityVC = UIActivityViewController(activityItems:[imageToShare], applicationActivities: [])
+        let activityVC = UIActivityViewController(activityItems:[imageToShare,selectedImage ?? ""], applicationActivities: [])
         activityVC.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
         //the line above tells the share view where to appear (what was tapped to view it) in case we use ipad it is important,without it app will crash
         present(activityVC,animated: true)
